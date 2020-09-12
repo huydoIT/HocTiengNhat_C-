@@ -18,6 +18,7 @@ namespace HocTiengNhat
 {
     public partial class MainForm : Form
     {
+        // Test Github
         public MyUser userInfo { get; set; }
         
         public MainForm()
