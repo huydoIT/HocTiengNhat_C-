@@ -1,6 +1,6 @@
 ﻿namespace HocTiengNhat
 {
-    partial class usAddLesson
+    partial class ucLesson
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,28 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lbNum = new System.Windows.Forms.Label();
+            this.dgvData = new System.Windows.Forms.DataGridView();
             this.kanji = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hira = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mean = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSave = new System.Windows.Forms.Button();
             this.lbLesson = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // lbNum
             // 
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.lbNum.AutoSize = true;
+            this.lbNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNum.Location = new System.Drawing.Point(352, 33);
+            this.lbNum.Name = "lbNum";
+            this.lbNum.Size = new System.Drawing.Size(120, 25);
+            this.lbNum.TabIndex = 5;
+            this.lbNum.Text = "Vocabulary";
+            // 
+            // dgvData
+            // 
+            this.dgvData.AllowUserToDeleteRows = false;
+            this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.kanji,
             this.hira,
             this.mean});
-            this.dataGridView1.Location = new System.Drawing.Point(27, 95);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(510, 230);
-            this.dataGridView1.TabIndex = 4;
+            this.dgvData.Location = new System.Drawing.Point(12, 99);
+            this.dgvData.Name = "dgvData";
+            this.dgvData.ReadOnly = true;
+            this.dgvData.Size = new System.Drawing.Size(524, 226);
+            this.dgvData.TabIndex = 6;
             // 
             // kanji
             // 
@@ -73,38 +83,27 @@
             this.mean.Name = "mean";
             this.mean.ReadOnly = true;
             // 
-            // btnSave
-            // 
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(421, 331);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(116, 47);
-            this.btnSave.TabIndex = 5;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // lbLesson
             // 
             this.lbLesson.AutoSize = true;
-            this.lbLesson.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLesson.Location = new System.Drawing.Point(27, 38);
+            this.lbLesson.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLesson.Location = new System.Drawing.Point(7, 33);
             this.lbLesson.Name = "lbLesson";
-            this.lbLesson.Size = new System.Drawing.Size(60, 24);
-            this.lbLesson.TabIndex = 6;
-            this.lbLesson.Text = "label1";
+            this.lbLesson.Size = new System.Drawing.Size(82, 25);
+            this.lbLesson.TabIndex = 4;
+            this.lbLesson.Text = "Lesson";
             // 
-            // usAddLesson
+            // ucLesson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lbNum);
+            this.Controls.Add(this.dgvData);
             this.Controls.Add(this.lbLesson);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.dataGridView1);
-            this.Name = "usAddLesson";
-            this.Size = new System.Drawing.Size(568, 403);
-            this.Load += new System.EventHandler(this.usAddLesson_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Name = "ucLesson";
+            this.Size = new System.Drawing.Size(550, 400);
+            this.Load += new System.EventHandler(this.ucLesson_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,11 +111,11 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label lbNum;
+        private System.Windows.Forms.DataGridView dgvData;
         private System.Windows.Forms.DataGridViewTextBoxColumn kanji;
         private System.Windows.Forms.DataGridViewTextBoxColumn hira;
         private System.Windows.Forms.DataGridViewTextBoxColumn mean;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lbLesson;
     }
 }

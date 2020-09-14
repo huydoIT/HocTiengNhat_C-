@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Counter.cs" />
+    <Compile Include="DataConnect.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,11 +93,17 @@
     <Compile Include="RegistrationForm.Designer.cs">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="usAddLesson.cs">
+    <Compile Include="ucLesson.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usAddLesson.Designer.cs">
-      <DependentUpon>usAddLesson.cs</DependentUpon>
+    <Compile Include="ucLesson.Designer.cs">
+      <DependentUpon>ucLesson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucLessonAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucLessonAdd.Designer.cs">
+      <DependentUpon>ucLessonAdd.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -116,8 +123,11 @@
     <EmbeddedResource Include="RegistrationForm.resx">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usAddLesson.resx">
-      <DependentUpon>usAddLesson.cs</DependentUpon>
+    <EmbeddedResource Include="ucLesson.resx">
+      <DependentUpon>ucLesson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucLessonAdd.resx">
+      <DependentUpon>ucLessonAdd.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

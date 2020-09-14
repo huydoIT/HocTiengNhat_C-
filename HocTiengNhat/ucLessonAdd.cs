@@ -10,28 +10,28 @@ using System.Windows.Forms;
 
 namespace HocTiengNhat
 {
-    public partial class usAddLesson : UserControl
+    public partial class ucLessonAdd : UserControl
     {
-        private static usAddLesson _instance;
+        private static ucLessonAdd _instance;
         public MyUser userInfo { get; set; }
 
-        public static usAddLesson Instance
+        public static ucLessonAdd Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    _instance = new usAddLesson();     
+                    _instance = new ucLessonAdd();     
                 }
                 return _instance;
             }
         }
-        public usAddLesson()
+        public ucLessonAdd()
         {
             InitializeComponent();
         }
 
-        public usAddLesson(MyUser user)
+        public ucLessonAdd(MyUser user)
         {
             InitializeComponent();
             userInfo = user;

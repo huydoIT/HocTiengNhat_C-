@@ -20,7 +20,8 @@ namespace HocTiengNhat
     {
         // Test Github
         public MyUser userInfo { get; set; }
-        
+        IFirebaseClient client;
+
         public MainForm()
         {
             InitializeComponent();
@@ -32,17 +33,11 @@ namespace HocTiengNhat
             userInfo = user;
         }
 
-        IFirebaseConfig ifc = new FirebaseConfig()
-        {
-            AuthSecret = "DGf5cJ8AcEYEVYMuxDA12NOli8Vk1Tm1s0lXIiz5",
-            BasePath = "https://fir-d5946.firebaseio.com/"
-        };
-        IFirebaseClient client;
         private void MainForm_Load(object sender, EventArgs e)
         {
             try
             {
-                client = new FireSharp.FirebaseClient(ifc);
+                client = new DataConnect().getClient();
             }
             catch
             {
@@ -80,36 +75,10 @@ namespace HocTiengNhat
             dataGridView1.Rows.Clear();
             //get partID
             string partInfo = userInfo.user + "_" + curButton.Name.Substring(4);
-            //MessageBox.Show("part info: " + partInfo);
-            FirebaseResponse resNumOf = client.Get(@"partInfo/" + partInfo + "/numOfVal");
 
-
-            //MessageBox.Show("Result: " + resNumOf.ResultAs<string>());
-            int numberOf = int.Parse(resNumOf.ResultAs<string>());
-            this.lbLesson.Text = curButton.Text;
-            this.lbNum.Text = "Vocabulary: " + numberOf.ToString();
-            for(int i = 1; i <= numberOf; i++)
+            if (!panelDetail.Controls.Contains(ucLesson.Instance))
             {
-                FirebaseResponse resData = client.Get(@"partInfo/" + partInfo + "/detail/" + i);
-                MyDetail resDetail = resData.ResultAs<MyDetail>();
-
-                if(resDetail != null)
-                {
-                    dataGridView1.Rows.Add(resDetail.kanji, resDetail.hira, resDetail.mean);
-                }
-            }
-            //MessageBox.Show(userInfo.user + "_" + curButton.Name.Substring(4));
-        }
-
-        public void btnAddClick(object sender, EventArgs e)
-        {
-            //Button curButton = (Button)sender;
-            //dataGridView1.Rows.Clear();
-
-            //MessageBox.Show("Add button pressed!!");
-            if (!panelDetail.Controls.Contains(usAddLesson.Instance))
-            {
-                usAddLesson frm = new usAddLesson(userInfo);
+                ucLesson frm = new ucLesson(partInfo);
                 //panelDetail.Controls.Add(usAddLesson.Instance);
                 //usAddLesson.Instance.Dock = DockStyle.Fill;
                 //usAddLesson.Instance.BringToFront();
@@ -119,7 +88,31 @@ namespace HocTiengNhat
             }
             else
             {
-                usAddLesson.Instance.BringToFront();
+                ucLessonAdd.Instance.BringToFront();
+            }
+
+            //MessageBox.Show(userInfo.user + "_" + curButton.Name.Substring(4));
+        }
+
+        public void btnAddClick(object sender, EventArgs e)
+        {
+            //Button curButton = (Button)sender;
+            //dataGridView1.Rows.Clear();
+
+            //MessageBox.Show("Add button pressed!!");
+            if (!panelDetail.Controls.Contains(ucLessonAdd.Instance))
+            {
+                ucLessonAdd frm = new ucLessonAdd(userInfo);
+                //panelDetail.Controls.Add(usAddLesson.Instance);
+                //usAddLesson.Instance.Dock = DockStyle.Fill;
+                //usAddLesson.Instance.BringToFront();
+                panelDetail.Controls.Add(frm);
+                frm.Dock = DockStyle.Fill;
+                frm.BringToFront();
+            }
+            else
+            {
+                ucLessonAdd.Instance.BringToFront();
             }
         }
 
@@ -131,7 +124,7 @@ namespace HocTiengNhat
             //b.Location = new Point(startPos, endPos);
             b.Height = 50;
             b.Width = 150;
-            b.Margin = new Padding(3);
+            b.Margin = new Padding(5);
 
             if (controlNumber == -1)
             {

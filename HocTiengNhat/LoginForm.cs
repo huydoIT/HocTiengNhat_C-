@@ -22,12 +22,6 @@ namespace HocTiengNhat
             InitializeComponent();
         }
 
-        IFirebaseConfig ifc = new FirebaseConfig()
-        {
-            AuthSecret = "DGf5cJ8AcEYEVYMuxDA12NOli8Vk1Tm1s0lXIiz5",
-            BasePath = "https://fir-d5946.firebaseio.com/"
-        };
-
         IFirebaseClient client;
 
         private void BtnReg_Click(object sender, EventArgs e)
@@ -41,7 +35,7 @@ namespace HocTiengNhat
         {
             try
             {
-                client = new FireSharp.FirebaseClient(ifc);
+                client = new DataConnect().getClient();
             }
             catch
             {
